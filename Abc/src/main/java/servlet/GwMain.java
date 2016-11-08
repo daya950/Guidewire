@@ -24,7 +24,7 @@ import main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.cc
 /**
  * Servlet implementation class GwMain
  */
-//@WebServlet(name = "main",urlPatterns = {"/"})
+@WebServlet(name = "main",urlPatterns = {"/"})
 public class GwMain extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
