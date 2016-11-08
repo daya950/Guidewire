@@ -21,6 +21,7 @@ import com.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchin
 /**
  * Servlet implementation class GwMain
  */
+@WebServlet(name = "main",urlPatterns = {"/"})
 public class GwMain extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
