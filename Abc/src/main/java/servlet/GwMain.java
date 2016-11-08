@@ -24,7 +24,7 @@ import main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.cc
 /**
  * Servlet implementation class GwMain
  */
-@WebServlet(name = "main",urlPatterns = {"/"})
+//@WebServlet(name = "main",urlPatterns = {"/"})
 public class GwMain extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -47,7 +47,7 @@ public class GwMain extends HttpServlet {
 			IPolicy ws = new PolicyImpl();
 			//((PolicyImpl)ws).setAppProps(appProps);
 			//((PolicyImpl)ws).setLogger(logger);
-			result = ws.retrievePolicy("1849854097");
+			result = ws.retrievePolicy(request.getParameter("policyId"));
 
 			if(result != null && result.getEnvelope() != null && result.getEnvelope().getCCPolicy() != null) {
 				map1 = new HashMap<String,Object>();                                             
