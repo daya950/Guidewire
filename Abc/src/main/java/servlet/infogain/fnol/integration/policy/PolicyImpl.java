@@ -13,7 +13,7 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.ws.BindingProvider;
 
-import org.slf4j.Logger;
+//import org.slf4j.Logger;
 //import org.springframework.beans.factory.annotation.Autowired;
 
 import main.java.servlet.guidewire.pc.ccintegration.CCPCFilteringCriteria;
@@ -31,7 +31,7 @@ public class PolicyImpl implements IPolicy {
 	Properties appProps;
 
 //	@FNOLLogger
-	Logger logger;
+//	Logger logger;
 
 	@Override
 	public Return retrievePolicy(String policyNumber)throws Exception {
@@ -64,7 +64,7 @@ public class PolicyImpl implements IPolicy {
 			result = this.getPCPort().retrievePolicy(
 					policyNumber, xMLGregorianCalendar, ccPCFilteringCriteria);
 		} catch (Exception ex) {
-			logger.info("Exception in fetchPolicyDetail  " + ex.getMessage());
+//			logger.info("Exception in fetchPolicyDetail  " + ex.getMessage());
 			throw ex;
 		}
 		return result;
@@ -92,7 +92,7 @@ public class PolicyImpl implements IPolicy {
 			result = this.getPCPort().searchForPolicies(
 					ccPCSearchCriteria, ccPCFilteringCriteria);
 		} catch (Exception ex) {
-			logger.info("Exception in fetchPolicyDetail  " + ex.getMessage());
+//			logger.info("Exception in fetchPolicyDetail  " + ex.getMessage());
 			throw ex;
 		}
 		return result;
@@ -108,9 +108,9 @@ public class PolicyImpl implements IPolicy {
 
 
 
-	public void setLogger(Logger logger2) {
+/*	public void setLogger(Logger logger2) {
 		this.logger=logger2;
-	}
+	}*/
 	
 	private CCPolicySearchIntegrationPortType getPCPort() throws MalformedURLException{
 		String policyURL = "http://115.112.147.13:8180/pc/ws/gw/webservice/pc/pc800/ccintegration/CCPolicySearchIntegration?WSDL";
