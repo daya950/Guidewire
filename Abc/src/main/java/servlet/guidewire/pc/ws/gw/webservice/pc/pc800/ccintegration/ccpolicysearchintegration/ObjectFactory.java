@@ -1,5 +1,5 @@
 
-package com.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration;
+package main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the com.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration package. 
+ * generated in the main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -23,7 +23,7 @@ public class ObjectFactory {
 
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration
      * 
      */
     public ObjectFactory() {

@@ -1,5 +1,5 @@
 
-package com.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration;
+package main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration;
 
 import javax.xml.ws.WebFault;
 
@@ -45,7 +45,7 @@ public class SOAPException_Exception
     /**
      * 
      * @return
-     *     returns fault bean: com.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.SOAPException
+     *     returns fault bean: main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.SOAPException
      */
     public SOAPException getFaultInfo() {
         return faultInfo;

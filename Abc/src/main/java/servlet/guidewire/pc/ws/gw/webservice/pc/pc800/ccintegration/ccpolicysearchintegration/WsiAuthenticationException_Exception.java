@@ -1,5 +1,5 @@
 
-package com.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration;
+package main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration;
 
 import javax.xml.ws.WebFault;
 
@@ -45,7 +45,7 @@ public class WsiAuthenticationException_Exception
     /**
      * 
      * @return
-     *     returns fault bean: com.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.WsiAuthenticationException
+     *     returns fault bean: main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.WsiAuthenticationException
      */
     public WsiAuthenticationException getFaultInfo() {
         return faultInfo;

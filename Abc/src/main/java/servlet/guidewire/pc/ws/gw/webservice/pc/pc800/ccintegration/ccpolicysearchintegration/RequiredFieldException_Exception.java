@@ -1,5 +1,5 @@
 
-package com.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration;
+package main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration;
 
 import javax.xml.ws.WebFault;
 
@@ -45,7 +45,7 @@ public class RequiredFieldException_Exception
     /**
      * 
      * @return
-     *     returns fault bean: com.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.RequiredFieldException
+     *     returns fault bean: main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.RequiredFieldException
      */
     public RequiredFieldException getFaultInfo() {
         return faultInfo;
