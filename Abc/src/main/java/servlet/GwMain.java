@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 
-import com.guidewire.pc.ccintegration.CCPolicyCoverage;
-import com.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.RetrievePolicyResponse.Return;
+import main.java.servlet.guidewire.pc.ccintegration.CCPolicyCoverage;
+import main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.RetrievePolicyResponse.Return;
 
 
 /**
