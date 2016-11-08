@@ -12,9 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.slf4j.Logger;
+//import org.slf4j.Logger;
 
-import main.java.servlet.infogain.fnol.integration.policy;
+import main.java.servlet.infogain.fnol.integration.policy.IPolicy;
+import main.java.servlet.infogain.fnol.integration.policy.IPolicyImpl;
 import main.java.servlet.guidewire.pc.ccintegration.CCPolicyCoverage;
 import main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.RetrievePolicyResponse.Return;
 
