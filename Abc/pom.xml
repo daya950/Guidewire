@@ -53,7 +53,7 @@
                 <assembleDirectory>target</assembleDirectory>
                 <programs>
                     <program>
-                        <mainClass>com.guidewire.launch.Main</mainClass>
+                        <mainClass>launch.Main</mainClass>
                         <name>webapp</name>
                     </program>
                 </programs>
