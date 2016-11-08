@@ -39,6 +39,12 @@ public class GwMain extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	}
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
 		Map<String,Object> map1 = null;
@@ -65,21 +71,6 @@ public class GwMain extends HttpServlet {
 		} catch(Exception ex){
 			out.print(ex.getMessage());                   
 		}
-		
-/*			if (!CollectionUtils.isEmpty(map1)) {
-				return FNOLUtil.getResponse(appProps.getProperty("response.code.success"),
-	            appProps.getProperty("success.validatedPolicy"), map1);
-			} else {
-				return FNOLUtil.getResponse(appProps.getProperty("response.code.error"),
-				appProps.getProperty("error.validatedPolicy"),errorMsg);
-	        }*/
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 	}
 
 }
