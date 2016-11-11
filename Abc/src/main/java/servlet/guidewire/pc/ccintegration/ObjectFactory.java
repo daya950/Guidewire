@@ -1,5 +1,5 @@
 
-package main.java.servlet.guidewire.pc.ccintegration;
+package servlet.guidewire.pc.ccintegration;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;

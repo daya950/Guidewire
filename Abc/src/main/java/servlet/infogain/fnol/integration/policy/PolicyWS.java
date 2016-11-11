@@ -1,4 +1,4 @@
-package main.java.servlet.infogain.fnol.integration.policy;
+package servlet.infogain.fnol.integration.policy;
 
 public class PolicyWS {
 

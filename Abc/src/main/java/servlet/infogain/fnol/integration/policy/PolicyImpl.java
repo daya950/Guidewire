@@ -1,4 +1,4 @@
-package main.java.servlet.infogain.fnol.integration.policy;
+package servlet.infogain.fnol.integration.policy;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -16,12 +16,13 @@ import javax.xml.ws.BindingProvider;
 //import org.slf4j.Logger;
 //import org.springframework.beans.factory.annotation.Autowired;
 
-import main.java.servlet.guidewire.pc.ccintegration.CCPCFilteringCriteria;
-import main.java.servlet.guidewire.pc.ccintegration.CCPCSearchCriteria;
-import main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.CCPolicySearchIntegration;
-import main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.CCPolicySearchIntegrationPortType;
-import main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.RetrievePolicyResponse.Return;
-import main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.SearchForPoliciesResponse;
+
+import servlet.guidewire.pc.ccintegration.CCPCFilteringCriteria;
+import servlet.guidewire.pc.ccintegration.CCPCSearchCriteria;
+import servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.CCPolicySearchIntegration;
+import servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.CCPolicySearchIntegrationPortType;
+import servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.RetrievePolicyResponse.Return;
+import servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.SearchForPoliciesResponse;
 //import com.infogain.fnol.core.FNOLLogger;
 //import com.infogain.fnol.util.SampleJAXBconverter;
 
@@ -33,7 +34,6 @@ public class PolicyImpl implements IPolicy {
 //	@FNOLLogger
 //	Logger logger;
 
-	@Override
 	public Return retrievePolicy(String policyNumber)throws Exception {
 		
 		Map<String, String> map1 = new HashMap<String, String>();
@@ -70,8 +70,6 @@ public class PolicyImpl implements IPolicy {
 		return result;
 	}
 	
-	
-	@Override
 	public SearchForPoliciesResponse.Return searchPolicy(String policyNumber)throws Exception {
 		
 		Map<String, String> map1 = new HashMap<String, String>();
@@ -128,5 +126,4 @@ public class PolicyImpl implements IPolicy {
 			
 			return ccPolicySearchIntegrationSoap11PortType;
 	}
-	
 }

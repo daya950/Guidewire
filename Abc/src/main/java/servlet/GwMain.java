@@ -1,4 +1,4 @@
-package main.java.servlet;
+package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,14 +12,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.json.JsonObject;
+
 
 //import org.slf4j.Logger;
 
-import main.java.servlet.infogain.fnol.integration.policy.IPolicy;
-import main.java.servlet.infogain.fnol.integration.policy.PolicyImpl;
-import main.java.servlet.guidewire.pc.ccintegration.CCPolicyCoverage;
-import main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.RetrievePolicyResponse.Return;
+import servlet.infogain.fnol.integration.policy.IPolicy;
+import servlet.infogain.fnol.integration.policy.PolicyImpl;
+import servlet.guidewire.pc.ccintegration.CCPolicyCoverage;
+import servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.RetrievePolicyResponse.Return;
 
 
 /**
@@ -67,9 +67,9 @@ public class GwMain extends HttpServlet {
 				map1.put("EffectiveDate", result.getEnvelope().getCCPolicy().getEffectiveDate());
 				map1.put("ExpiryDate", result.getEnvelope().getCCPolicy().getExpirationDate());
 				map1.put("policyCoverage", coverages);
-				JSONObject json = new JSONObject();
+				/*JSONObject json = new JSONObject();
 			    json.putAll(map1);
-				out.print(json);
+				out.print(json);*/
 			}          
 		} catch(Exception ex){
 			out.print(ex.getMessage());                   

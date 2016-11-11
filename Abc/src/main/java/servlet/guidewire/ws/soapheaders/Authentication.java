@@ -1,5 +1,5 @@
 
-package main.java.servlet.guidewire.ws.soapheaders;
+package servlet.guidewire.ws.soapheaders;
 
 import java.util.HashMap;
 import java.util.Map;

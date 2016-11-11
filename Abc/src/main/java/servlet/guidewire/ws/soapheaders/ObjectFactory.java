@@ -1,5 +1,5 @@
 
-package main.java.servlet.guidewire.ws.soapheaders;
+package servlet.guidewire.ws.soapheaders;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;

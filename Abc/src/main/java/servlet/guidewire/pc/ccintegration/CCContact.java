@@ -1,5 +1,5 @@
 
-package main.java.servlet.guidewire.pc.ccintegration;
+package servlet.guidewire.pc.ccintegration;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

@@ -1,5 +1,5 @@
 
-package main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration;
+package servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -9,8 +9,8 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
-import main.java.servlet.guidewire.pc.ccintegration.CCPCFilteringCriteria;
-import main.java.servlet.guidewire.pc.ccintegration.CCPCSearchCriteria;
+import servlet.guidewire.pc.ccintegration.CCPCFilteringCriteria;
+import servlet.guidewire.pc.ccintegration.CCPCSearchCriteria;
 
 
 /**
@@ -21,9 +21,9 @@ import main.java.servlet.guidewire.pc.ccintegration.CCPCSearchCriteria;
  */
 @WebService(name = "CCPolicySearchIntegrationPortType", targetNamespace = "http://guidewire.com/pc/ws/gw/webservice/pc/pc800/ccintegration/CCPolicySearchIntegration")
 @XmlSeeAlso({
-    main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.ObjectFactory.class,
-    main.java.servlet.guidewire.pc.ccintegration.ObjectFactory.class,
-    main.java.servlet.guidewire.ws.soapheaders.ObjectFactory.class
+    servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.ObjectFactory.class,
+    servlet.guidewire.pc.ccintegration.ObjectFactory.class,
+    servlet.guidewire.ws.soapheaders.ObjectFactory.class
 })
 public interface CCPolicySearchIntegrationPortType {
 
@@ -42,7 +42,7 @@ public interface CCPolicySearchIntegrationPortType {
     @WebResult(targetNamespace = "http://guidewire.com/pc/ws/gw/webservice/pc/pc800/ccintegration/CCPolicySearchIntegration")
     @RequestWrapper(localName = "searchForPolicies", targetNamespace = "http://guidewire.com/pc/ws/gw/webservice/pc/pc800/ccintegration/CCPolicySearchIntegration", className = "main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.SearchForPolicies")
     @ResponseWrapper(localName = "searchForPoliciesResponse", targetNamespace = "http://guidewire.com/pc/ws/gw/webservice/pc/pc800/ccintegration/CCPolicySearchIntegration", className = "main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.SearchForPoliciesResponse")
-    public main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.SearchForPoliciesResponse.Return searchForPolicies(
+    public servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.SearchForPoliciesResponse.Return searchForPolicies(
         @WebParam(name = "criteria", targetNamespace = "http://guidewire.com/pc/ws/gw/webservice/pc/pc800/ccintegration/CCPolicySearchIntegration")
         CCPCSearchCriteria criteria,
         @WebParam(name = "filter", targetNamespace = "http://guidewire.com/pc/ws/gw/webservice/pc/pc800/ccintegration/CCPolicySearchIntegration")
@@ -65,7 +65,7 @@ public interface CCPolicySearchIntegrationPortType {
     @WebResult(targetNamespace = "http://guidewire.com/pc/ws/gw/webservice/pc/pc800/ccintegration/CCPolicySearchIntegration")
     @RequestWrapper(localName = "retrievePolicy", targetNamespace = "http://guidewire.com/pc/ws/gw/webservice/pc/pc800/ccintegration/CCPolicySearchIntegration", className = "main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.RetrievePolicy")
     @ResponseWrapper(localName = "retrievePolicyResponse", targetNamespace = "http://guidewire.com/pc/ws/gw/webservice/pc/pc800/ccintegration/CCPolicySearchIntegration", className = "main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.RetrievePolicyResponse")
-    public main.java.servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.RetrievePolicyResponse.Return retrievePolicy(
+    public servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.RetrievePolicyResponse.Return retrievePolicy(
         @WebParam(name = "policyNumber", targetNamespace = "http://guidewire.com/pc/ws/gw/webservice/pc/pc800/ccintegration/CCPolicySearchIntegration")
         String policyNumber,
         @WebParam(name = "asOfDate", targetNamespace = "http://guidewire.com/pc/ws/gw/webservice/pc/pc800/ccintegration/CCPolicySearchIntegration")
