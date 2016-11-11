@@ -66,7 +66,9 @@ public class GwMain extends HttpServlet {
 				map1.put("EffectiveDate", result.getEnvelope().getCCPolicy().getEffectiveDate());
 				map1.put("ExpiryDate", result.getEnvelope().getCCPolicy().getExpirationDate());
 				map1.put("policyCoverage", coverages);
-				out.print(map1);
+				JSONObject json = new JSONObject();
+			    json.putAll(map1);
+				out.print(json);
 			}          
 		} catch(Exception ex){
 			out.print(ex.getMessage());                   
