@@ -16,6 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 
 //import org.slf4j.Logger;
 
+
+import org.json.JSONObject;
+
 import servlet.infogain.fnol.integration.policy.IPolicy;
 import servlet.infogain.fnol.integration.policy.PolicyImpl;
 import servlet.guidewire.pc.ccintegration.CCPolicyCoverage;
@@ -67,9 +70,9 @@ public class GwMain extends HttpServlet {
 				map1.put("EffectiveDate", result.getEnvelope().getCCPolicy().getEffectiveDate());
 				map1.put("ExpiryDate", result.getEnvelope().getCCPolicy().getExpirationDate());
 				map1.put("policyCoverage", coverages);
-				/*JSONObject json = new JSONObject();
-			    json.putAll(map1);
-				out.print(json);*/
+				JSONObject json = new JSONObject();
+			    json.put("data", map1);
+				out.print(json);
 			}          
 		} catch(Exception ex){
 			out.print(ex.getMessage());                   
