@@ -7,14 +7,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.ws.BindingProvider;
-
-//import org.slf4j.Logger;
-//import org.springframework.beans.factory.annotation.Autowired;
 
 
 import servlet.guidewire.pc.ccintegration.CCPCFilteringCriteria;
@@ -23,16 +19,9 @@ import servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysear
 import servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.CCPolicySearchIntegrationPortType;
 import servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.RetrievePolicyResponse.Return;
 import servlet.guidewire.pc.ws.gw.webservice.pc.pc800.ccintegration.ccpolicysearchintegration.SearchForPoliciesResponse;
-//import com.infogain.fnol.core.FNOLLogger;
-//import com.infogain.fnol.util.SampleJAXBconverter;
 
-public class PolicyImpl implements IPolicy {
+public class PolicyImpl {
 
-//	@Autowired
-	Properties appProps;
-
-//	@FNOLLogger
-//	Logger logger;
 
 	public Return retrievePolicy(String policyNumber)throws Exception {
 		
@@ -47,24 +36,10 @@ public class PolicyImpl implements IPolicy {
 
 			DatatypeFactory df = DatatypeFactory.newInstance();
 			GregorianCalendar gc = new GregorianCalendar();
-			//gc.setTimeInMillis(currentDate.getTime());
-			XMLGregorianCalendar xMLGregorianCalendar = df
-					.newXMLGregorianCalendar(gc);
-			
-			
-			
-			/*Date currentDate = new Date();
-			DatatypeFactory df = DatatypeFactory.newInstance();
-			GregorianCalendar gc = new GregorianCalendar();
-			gc.setTimeInMillis(currentDate.getTime());
-			XMLGregorianCalendar xMLGregorianCalendar = df
-					.newXMLGregorianCalendar(gc);*/
-			
-			
+			XMLGregorianCalendar xMLGregorianCalendar = df.newXMLGregorianCalendar(gc);
 			result = this.getPCPort().retrievePolicy(
 					policyNumber, xMLGregorianCalendar, ccPCFilteringCriteria);
 		} catch (Exception ex) {
-//			logger.info("Exception in fetchPolicyDetail  " + ex.getMessage());
 			throw ex;
 		}
 		return result;
@@ -90,29 +65,13 @@ public class PolicyImpl implements IPolicy {
 			result = this.getPCPort().searchForPolicies(
 					ccPCSearchCriteria, ccPCFilteringCriteria);
 		} catch (Exception ex) {
-//			logger.info("Exception in fetchPolicyDetail  " + ex.getMessage());
 			throw ex;
 		}
 		return result;
 	}
-
-	public Properties getAppProps() {
-		return appProps;
-	}
-
-	public void setAppProps(Properties appProps) {
-		this.appProps = appProps;
-	}
-
-
-
-/*	public void setLogger(Logger logger2) {
-		this.logger=logger2;
-	}*/
 	
 	private CCPolicySearchIntegrationPortType getPCPort() throws MalformedURLException{
 		String policyURL = "http://115.112.147.13:8180/pc/ws/gw/webservice/pc/pc800/ccintegration/CCPolicySearchIntegration?WSDL";
-		//	String policyURL = appProps.getProperty("policy.ws.url");
 			CCPolicySearchIntegration ccPolicySearchIntegration = new CCPolicySearchIntegration(
 					new URL(policyURL));
 			CCPolicySearchIntegrationPortType ccPolicySearchIntegrationSoap11PortType = ccPolicySearchIntegration
