@@ -42,13 +42,11 @@ public class ClaimImpl {
 	public String save(FnolJsonDTO fnolJSONDTO) {
 		String errorMsg = null;
 		String claimresult = null;
-		ClaimInfoDTO objClaimInfoDTO = null;
 		try {
 
 			AcordTransform transform = new AcordTransform();
 			ACORDDocument aCORDDocument = transform.parseXMLtoAcord(fnolJSONDTO);
-			objClaimInfoDTO = this.getClaimAPIPort().getClaimInfo(this.getClaimAPIPort().importAcordClaimFromXML(aCORDDocument.toString()));
-			claimresult = objClaimInfoDTO.toString();
+			claimresult = this.getClaimAPIPort().importAcordClaimFromXML(aCORDDocument.toString());
 		} catch (Exception ex) {
 			errorMsg = ex.getMessage();
 		}
