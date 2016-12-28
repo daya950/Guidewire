@@ -47,7 +47,7 @@ public class ClaimImpl {
 			AcordTransform transform = new AcordTransform();
 			ACORDDocument aCORDDocument = transform.parseXMLtoAcord(fnolJSONDTO);
 
-			claimresult = this.getClaimAPIPort().importAcordClaimFromXML(aCORDDocument.toString());
+			claimresult = this.getClaimAPIPort().getClaimInfo(this.getClaimAPIPort().importAcordClaimFromXML(aCORDDocument.toString()));
 
 		} catch (Exception ex) {
 			errorMsg = ex.getMessage();
