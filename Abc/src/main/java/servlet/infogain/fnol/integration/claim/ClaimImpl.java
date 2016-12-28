@@ -17,6 +17,7 @@ import servlet.guidewire.cc.ws.gw.webservice.cc.cc801.claim.activityapi.activity
 import servlet.guidewire.cc.ws.gw.webservice.cc.cc801.claim.activityapi.activityapi.ActivityAPIPortType;
 import servlet.guidewire.cc.ws.gw.webservice.cc.cc801.claim.claimapi.ClaimAPI;
 import servlet.guidewire.cc.ws.gw.webservice.cc.cc801.claim.claimapi.ClaimAPIPortType;
+import servlet.guidewire.cc.ws.gw.webservice.cc.cc801.dto.claiminfodto.ClaimInfoDTO;
 import servlet.guidewire.ws.soapheaders.TransactionId;
 import servlet.infogain.fnol.model.FnolJsonDTO;
 import servlet.infogain.fnol.transformation.AcordTransform;
@@ -41,14 +42,13 @@ public class ClaimImpl {
 	public String save(FnolJsonDTO fnolJSONDTO) {
 		String errorMsg = null;
 		String claimresult = null;
-		
+		ClaimInfoDTO objClaimInfoDTO = null;
 		try {
 
 			AcordTransform transform = new AcordTransform();
 			ACORDDocument aCORDDocument = transform.parseXMLtoAcord(fnolJSONDTO);
-
-			claimresult = this.getClaimAPIPort().getClaimInfo(this.getClaimAPIPort().importAcordClaimFromXML(aCORDDocument.toString()));
-
+			objClaimInfoDTO = this.getClaimAPIPort().getClaimInfo(this.getClaimAPIPort().importAcordClaimFromXML(aCORDDocument.toString()));
+			claimresult = objClaimInfoDTO.toString();
 		} catch (Exception ex) {
 			errorMsg = ex.getMessage();
 		}
