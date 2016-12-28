@@ -219,7 +219,7 @@ public class GwMain extends HttpServlet {
 			fnoljsondto.setVehicleInfoDTO(vehDTO);
 			fnoljsondto.setLossDetailDTO(lossDetailDto);
 			
-			ws.save(fnoljsondto);
+			out.print(ws.save(fnoljsondto));
 			
 		} else if ((service).equals("cc")) {
 			try {
