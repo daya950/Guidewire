@@ -229,7 +229,7 @@ public class GwMain extends HttpServlet {
 				out.print(strPublicId+" "+json);
 				//out.print(ws.save(fnoljsondto));
 			} catch(Exception ex){
-				out.print(ex.getMessage());                   
+				out.print("Ab bol "+ex.getMessage());                   
 			}
 		} else if ((service).equals("cc")) {
 			try {
