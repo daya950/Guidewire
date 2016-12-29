@@ -45,10 +45,10 @@ public class ClaimImpl {
 		ClaimDTO claimDTO = null;
 		try {
 
-			AcordTransform transform = new AcordTransform();
+			/*AcordTransform transform = new AcordTransform();
 			ACORDDocument aCORDDocument = transform.parseXMLtoAcord(fnolJSONDTO);
-			claimresult = this.getClaimAPIPort().importAcordClaimFromXML(aCORDDocument.toString());
-			claimDTO = this.getClaimAPIPort().getDtoForClaim(claimresult);
+			claimresult = this.getClaimAPIPort().importAcordClaimFromXML(aCORDDocument.toString());*/
+			claimDTO = this.getClaimAPIPort().getDtoForClaim("cc:128");
 		} catch (Exception ex) {
 			errorMsg = ex.getMessage();
 		}
