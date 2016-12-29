@@ -56,7 +56,7 @@ public class ClaimImpl {
 		String errorMsg = null;
 		ClaimDTO claimDTO = null;
 		try {
-			claimDTO = this.getClaimAPIPort().getDtoForClaim(publicClaimId);
+			claimDTO = this.getClaimAPIPort().getDtoForClaim("cc:128");
 		} catch (Exception ex) {
 			errorMsg = ex.getMessage();
 		}
