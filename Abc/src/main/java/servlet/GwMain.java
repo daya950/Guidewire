@@ -19,6 +19,7 @@ import servlet.infogain.fnol.integration.claim.ClaimImpl;
 import servlet.infogain.fnol.integration.policy.PolicyImpl;
 import servlet.infogain.fnol.model.FnolJsonDTO;
 import servlet.infogain.fnol.model.LossDetailDTO;
+import servlet.guidewire.cc.ws.gw.webservice.cc.cc801.dto.claimdto.ClaimDTO;
 import servlet.infogain.fnol.model.Policy;
 import servlet.infogain.fnol.model.Question;
 import servlet.infogain.fnol.model.Questionnaire;
@@ -52,7 +53,7 @@ public class GwMain extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
 		Return result = null;
-
+		JSONObject json = new JSONObject();
 		String service = request.getParameter("service");
 		if ((service).equals("ccgw")) {
 			
@@ -219,12 +220,12 @@ public class GwMain extends HttpServlet {
 			fnoljsondto.setVehicleInfoDTO(vehDTO);
 			fnoljsondto.setLossDetailDTO(lossDetailDto);
 			
-			out.print(ws.save(fnoljsondto));
-			
+			ClaimDTO objClaimDTO = ws.save(fnoljsondto);
+			json.put("claimNo", objClaimDTO.getClaimNumber());
+			out.print(json);
 		} else if ((service).equals("cc")) {
 			try {
 				ClaimImpl ws = new ClaimImpl();
-				JSONObject json = new JSONObject();
 				ClaimState cs = ws.getClaimStatus(request.getParameter("id"));
 				json.put("status", cs.value());
 				out.print(json);
@@ -239,7 +240,7 @@ public class GwMain extends HttpServlet {
 				
 				if(result != null && result.getEnvelope() != null && result.getEnvelope().getCCPolicy() != null) {                                           
 					//List<CCPolicyCoverage> coverages = result.getEnvelope().getCCPolicy().getCoverages();
-					JSONObject json = new JSONObject();
+					
 					json.put("agent", result.getEnvelope().getCCPolicy().getAgent());
 					json.put("doingBusinessAs", result.getEnvelope().getCCPolicy().getDoingBusinessAs());
 					json.put("insured", result.getEnvelope().getCCPolicy().getInsured());
