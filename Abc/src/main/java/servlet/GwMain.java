@@ -226,6 +226,7 @@ public class GwMain extends HttpServlet {
 				} else {
 					json.put("claimNo", objClaimDTO.getClaimNumber());
 				}
+				out.print(json);
 				//out.print(ws.save(fnoljsondto));
 			} catch(Exception ex){
 				out.print(ex.getMessage());                   
