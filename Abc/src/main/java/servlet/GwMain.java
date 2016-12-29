@@ -56,173 +56,176 @@ public class GwMain extends HttpServlet {
 		JSONObject json = new JSONObject();
 		String service = request.getParameter("service");
 		if ((service).equals("ccgw")) {
-			
-			ClaimImpl ws = new ClaimImpl();
-			FnolJsonDTO fnoljsondto = new FnolJsonDTO();
-			
-			Questionnaire ques = new Questionnaire();
-			Question que = new Question();
-			List<Question> queList = new ArrayList<Question>();
-			
-			VehicleInfoDTO vehDTO = new VehicleInfoDTO();
-			vehDTO.setMake("Audi");
-			vehDTO.setModel("A4");
-			vehDTO.setVin("1");
-			vehDTO.setCity("21212");
-			vehDTO.setState("21212");
-			
-			Policy policy = new Policy();
-		    policy.setPolicyNumber(request.getParameter("id"));
-		    policy.setPolicyCurrency("usd");
-		    policy.setLineOfBusiness("AUTO");
-		    
-		    LossDetailDTO lossDetailDto = new LossDetailDTO();
-		    lossDetailDto.setLossVehicleDate("2016-06-16");
-		    lossDetailDto.setLossVehicleTime("02:12:00");
-		    lossDetailDto.setWhereOccurredDesc("Collision while turning left");
-		    lossDetailDto.setLossVehicleLocation("1212");
-		    lossDetailDto.setLossVehicleReportBy("1212");
-		    lossDetailDto.setLossVehicleIncidentDesc("21212121");
-			
-			que.setQuestionParamName("vehicleAge10Years");
-			que.setText("Vehicle Ten Years Old?");
-			que.setID("0000012");
-			que.setQuestionScoreID("1000018441");
-			que.setAnswer("YES");
-			que.setScore("15");
-			queList.add(que);
-			
-			que.setQuestionParamName("vehicleAge5Years");
-			que.setText("Vehicle Five Years Old?");
-			que.setID("0000012");
-			que.setQuestionScoreID("1000018441");
-			que.setAnswer("YES");
-			que.setScore("10");
-			queList.add(que);
-			
-			que.setQuestionParamName("airbagsDeployed");
-			que.setText("Whether or not airbags deployed?");
-			que.setID("0000012");
-			que.setQuestionScoreID("1000018441");
-			que.setAnswer("YES");
-			que.setScore("10");
-			queList.add(que);
-			
-			que.setQuestionParamName("vehicleSubmerged");
-			que.setText("Vehicle Fully Submerged?");
-			que.setID("0000012");
-			que.setQuestionScoreID("1000018441");
-			que.setAnswer("YES");
-			que.setScore("25");
-			queList.add(que);
-			
-			que.setQuestionParamName("waterLevelDash");
-			que.setText("Water Level Reach Dash?");
-			que.setID("0000012");
-			que.setQuestionScoreID("1000018441");
-			que.setAnswer("YES");
-			que.setScore("20");
-			queList.add(que);
-			
-			que.setQuestionParamName("mileage100K");
-			que.setText("Mileage over 100K?");
-			que.setID("0000012");
-			que.setQuestionScoreID("1000018441");
-			que.setAnswer("YES");
-			que.setScore("10");
-			queList.add(que);
-			
-			que.setQuestionParamName("extrication");
-			que.setText("Extrication Required?");
-			que.setID("0000012");
-			que.setQuestionScoreID("1000018441");
-			que.setAnswer("YES");
-			que.setScore("25");
-			queList.add(que);
-			
-			que.setQuestionParamName("vehicleRollOver");
-			que.setText("Vehicle Roll Over?");
-			que.setID("0000012");
-			que.setQuestionScoreID("1000018441");
-			que.setAnswer("YES");
-			que.setScore("15");
-			queList.add(que);
-			
-			que.setQuestionParamName("fireBurnDash");
-			que.setText("Fire Burn the Dash?");
-			que.setID("0000012");
-			que.setQuestionScoreID("1000018441");
-			que.setAnswer("YES");
-			que.setScore("15");
-			queList.add(que);
-			
-			que.setQuestionParamName("fireBurnEngine");
-			que.setText("Fire Burn the Engine?");
-			que.setID("0000012");
-			que.setQuestionScoreID("1000018441");
-			que.setAnswer("YES");
-			que.setScore("15");
-			queList.add(que);
-			
-			que.setQuestionParamName("floodSaltWater");
-			que.setText("Flood Occur Salt Water?");
-			que.setID("0000012");
-			que.setQuestionScoreID("1000018441");
-			que.setAnswer("YES");
-			que.setScore("15");
-			queList.add(que);
-			
-			que.setQuestionParamName("waterLevelDash");
-			que.setText("Water Level Reach Seats?");
-			que.setID("0000012");
-			que.setQuestionScoreID("1000018441");
-			que.setAnswer("YES");
-			que.setScore("10");
-			queList.add(que);
-			
-			que.setQuestionParamName("componentsMissing");
-			que.setText("Major Components Missing?");
-			que.setID("0000012");
-			que.setQuestionScoreID("1000018441");
-			que.setAnswer("YES");
-			que.setScore("10");
-			queList.add(que);
-			
-			que.setQuestionParamName("interiorMissing");
-			que.setText("Any Of The Interior Missing?");
-			que.setID("0000012");
-			que.setQuestionScoreID("1000018441");
-			que.setAnswer("YES");
-			que.setScore("10");
-			queList.add(que);
-			
-			que.setQuestionParamName("airbagsMissing");
-			que.setText("Airbags Missing?");
-			que.setID("0000012");
-			que.setQuestionScoreID("1000018441");
-			que.setAnswer("YES");
-			que.setScore("10");
-			queList.add(que);
-			
-			que.setQuestionParamName("isVehicleTowed");
-			que.setText("Was the vehicle towed from the scene?(Fetching from enhancement. Leave for now.)");
-			que.setID("0000012");
-			que.setQuestionScoreID("1000018441");
-			que.setAnswer("YES");
-			que.setScore("0");
-			queList.add(que);
-			
-			ques.setEvaluationVersion("1.0");
-			ques.setQuestionsList(queList);
-			
-			fnoljsondto.setPolicyDetails(policy);	
-			fnoljsondto.setQuestionnaire(ques);
-			fnoljsondto.setVehicleInfoDTO(vehDTO);
-			fnoljsondto.setLossDetailDTO(lossDetailDto);
-			
-			ClaimDTO objClaimDTO = ws.save(fnoljsondto);
-			json.put("claimNo", objClaimDTO.getClaimNumber());
-			out.print(json);
+			try {
+				ClaimImpl ws = new ClaimImpl();
+				FnolJsonDTO fnoljsondto = new FnolJsonDTO();
+
+				Questionnaire ques = new Questionnaire();
+				Question que = new Question();
+				List<Question> queList = new ArrayList<Question>();
+
+				VehicleInfoDTO vehDTO = new VehicleInfoDTO();
+				vehDTO.setMake("Audi");
+				vehDTO.setModel("A4");
+				vehDTO.setVin("1");
+				vehDTO.setCity("21212");
+				vehDTO.setState("21212");
+
+				Policy policy = new Policy();
+			    	policy.setPolicyNumber(request.getParameter("id"));
+		    		policy.setPolicyCurrency("usd");
+			    	policy.setLineOfBusiness("AUTO");
+
+			    	LossDetailDTO lossDetailDto = new LossDetailDTO();
+			    	lossDetailDto.setLossVehicleDate("2016-06-16");
+				lossDetailDto.setLossVehicleTime("02:12:00");
+			    	lossDetailDto.setWhereOccurredDesc("Collision while turning left");
+			    	lossDetailDto.setLossVehicleLocation("1212");
+			    	lossDetailDto.setLossVehicleReportBy("1212");
+			    	lossDetailDto.setLossVehicleIncidentDesc("21212121");
+
+				que.setQuestionParamName("vehicleAge10Years");
+				que.setText("Vehicle Ten Years Old?");
+				que.setID("0000012");
+				que.setQuestionScoreID("1000018441");
+				que.setAnswer("YES");
+				que.setScore("15");
+				queList.add(que);
+
+				que.setQuestionParamName("vehicleAge5Years");
+				que.setText("Vehicle Five Years Old?");
+				que.setID("0000012");
+				que.setQuestionScoreID("1000018441");
+				que.setAnswer("YES");
+				que.setScore("10");
+				queList.add(que);
+
+				que.setQuestionParamName("airbagsDeployed");
+				que.setText("Whether or not airbags deployed?");
+				que.setID("0000012");
+				que.setQuestionScoreID("1000018441");
+				que.setAnswer("YES");
+				que.setScore("10");
+				queList.add(que);
+
+				que.setQuestionParamName("vehicleSubmerged");
+				que.setText("Vehicle Fully Submerged?");
+				que.setID("0000012");
+				que.setQuestionScoreID("1000018441");
+				que.setAnswer("YES");
+				que.setScore("25");
+				queList.add(que);
+
+				que.setQuestionParamName("waterLevelDash");
+				que.setText("Water Level Reach Dash?");
+				que.setID("0000012");
+				que.setQuestionScoreID("1000018441");
+				que.setAnswer("YES");
+				que.setScore("20");
+				queList.add(que);
+
+				que.setQuestionParamName("mileage100K");
+				que.setText("Mileage over 100K?");
+				que.setID("0000012");
+				que.setQuestionScoreID("1000018441");
+				que.setAnswer("YES");
+				que.setScore("10");
+				queList.add(que);
+
+				que.setQuestionParamName("extrication");
+				que.setText("Extrication Required?");
+				que.setID("0000012");
+				que.setQuestionScoreID("1000018441");
+				que.setAnswer("YES");
+				que.setScore("25");
+				queList.add(que);
+
+				que.setQuestionParamName("vehicleRollOver");
+				que.setText("Vehicle Roll Over?");
+				que.setID("0000012");
+				que.setQuestionScoreID("1000018441");
+				que.setAnswer("YES");
+				que.setScore("15");
+				queList.add(que);
+
+				que.setQuestionParamName("fireBurnDash");
+				que.setText("Fire Burn the Dash?");
+				que.setID("0000012");
+				que.setQuestionScoreID("1000018441");
+				que.setAnswer("YES");
+				que.setScore("15");
+				queList.add(que);
+
+				que.setQuestionParamName("fireBurnEngine");
+				que.setText("Fire Burn the Engine?");
+				que.setID("0000012");
+				que.setQuestionScoreID("1000018441");
+				que.setAnswer("YES");
+				que.setScore("15");
+				queList.add(que);
+
+				que.setQuestionParamName("floodSaltWater");
+				que.setText("Flood Occur Salt Water?");
+				que.setID("0000012");
+				que.setQuestionScoreID("1000018441");
+				que.setAnswer("YES");
+				que.setScore("15");
+				queList.add(que);
+
+				que.setQuestionParamName("waterLevelDash");
+				que.setText("Water Level Reach Seats?");
+				que.setID("0000012");
+				que.setQuestionScoreID("1000018441");
+				que.setAnswer("YES");
+				que.setScore("10");
+				queList.add(que);
+
+				que.setQuestionParamName("componentsMissing");
+				que.setText("Major Components Missing?");
+				que.setID("0000012");
+				que.setQuestionScoreID("1000018441");
+				que.setAnswer("YES");
+				que.setScore("10");
+				queList.add(que);
+
+				que.setQuestionParamName("interiorMissing");
+				que.setText("Any Of The Interior Missing?");
+				que.setID("0000012");
+				que.setQuestionScoreID("1000018441");
+				que.setAnswer("YES");
+				que.setScore("10");
+				queList.add(que);
+
+				que.setQuestionParamName("airbagsMissing");
+				que.setText("Airbags Missing?");
+				que.setID("0000012");
+				que.setQuestionScoreID("1000018441");
+				que.setAnswer("YES");
+				que.setScore("10");
+				queList.add(que);
+
+				que.setQuestionParamName("isVehicleTowed");
+				que.setText("Was the vehicle towed from the scene?(Fetching from enhancement. Leave for now.)");
+				que.setID("0000012");
+				que.setQuestionScoreID("1000018441");
+				que.setAnswer("YES");
+				que.setScore("0");
+				queList.add(que);
+
+				ques.setEvaluationVersion("1.0");
+				ques.setQuestionsList(queList);
+
+				fnoljsondto.setPolicyDetails(policy);	
+				fnoljsondto.setQuestionnaire(ques);
+				fnoljsondto.setVehicleInfoDTO(vehDTO);
+				fnoljsondto.setLossDetailDTO(lossDetailDto);
+
+				ClaimDTO objClaimDTO = ws.save(fnoljsondto);
+				json.put("claimNo", objClaimDTO.getClaimNumber());
+				out.print(json);
+			} catch(Exception ex){
+				out.print(ex.getMessage());                   
+			}
 		} else if ((service).equals("cc")) {
 			try {
 				ClaimImpl ws = new ClaimImpl();
