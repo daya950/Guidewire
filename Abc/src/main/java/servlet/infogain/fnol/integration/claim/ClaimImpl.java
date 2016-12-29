@@ -39,7 +39,7 @@ public class ClaimImpl {
 		return result;
 	}
 	
-	public ClaimDTO save(FnolJsonDTO fnolJSONDTO) {
+	/*public ClaimDTO save(FnolJsonDTO fnolJSONDTO) {
 		String errorMsg = null;
 		String claimresult = null;
 		ClaimDTO claimDTO = null;
@@ -53,6 +53,20 @@ public class ClaimImpl {
 			errorMsg = ex.getMessage();
 		}
 		return claimDTO;
+	}*/
+	
+	public String save(FnolJsonDTO fnolJSONDTO) {
+		String errorMsg = null;
+		String claimresult = null;
+		try {
+
+			AcordTransform transform = new AcordTransform();
+			ACORDDocument aCORDDocument = transform.parseXMLtoAcord(fnolJSONDTO);
+			claimresult = this.getClaimAPIPort().importAcordClaimFromXML(aCORDDocument.toString());
+		} catch (Exception ex) {
+			errorMsg = ex.getMessage();
+		}
+		return claimresult;
 	}
 	
 	private PCClaimSearchIntegrationAPIPortType getPCClaimSearchIntegrationAPIPort() throws MalformedURLException {
