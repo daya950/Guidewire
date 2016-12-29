@@ -220,7 +220,7 @@ public class GwMain extends HttpServlet {
 				fnoljsondto.setVehicleInfoDTO(vehDTO);
 				fnoljsondto.setLossDetailDTO(lossDetailDto);
 
-				ClaimDTO objClaimDTO = ws.save(fnoljsondto);
+				ClaimDTO objClaimDTO = ws.getClaimDetail(ws.save(fnoljsondto));
 				json.put("claimNo", objClaimDTO.getClaimNumber());
 				out.print(json);
 			} catch(Exception ex){
