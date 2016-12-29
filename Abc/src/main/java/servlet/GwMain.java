@@ -219,14 +219,14 @@ public class GwMain extends HttpServlet {
 				fnoljsondto.setQuestionnaire(ques);
 				fnoljsondto.setVehicleInfoDTO(vehDTO);
 				fnoljsondto.setLossDetailDTO(lossDetailDto);
-
-				ClaimDTO objClaimDTO = ws.getClaimDetail("cc:128");
+				String strPublicId = ws.save(fnoljsondto);
+				ClaimDTO objClaimDTO = ws.getClaimDetailstrPublicId);
 				if (objClaimDTO == null) {
 					json.put("claimNo", "Bakwaas");
 				} else {
 					json.put("claimNo", objClaimDTO.getClaimNumber());
 				}
-				out.print(json);
+				out.print(strPublicId+" "+json);
 				//out.print(ws.save(fnoljsondto));
 			} catch(Exception ex){
 				out.print(ex.getMessage());                   
