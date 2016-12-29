@@ -39,14 +39,24 @@ public class ClaimImpl {
 		return result;
 	}
 	
-	public ClaimDTO save(FnolJsonDTO fnolJSONDTO) {
+	public String save(FnolJsonDTO fnolJSONDTO) {
 		String errorMsg = null;
 		String claimresult = null;
-		ClaimDTO claimDTO = null;
 		try {
 			AcordTransform transform = new AcordTransform();
 			ACORDDocument aCORDDocument = transform.parseXMLtoAcord(fnolJSONDTO);
-			claimDTO = this.getClaimAPIPort().getDtoForClaim(this.getClaimAPIPort().importAcordClaimFromXML(aCORDDocument.toString()));
+			claimresult = this.getClaimAPIPort().importAcordClaimFromXML(aCORDDocument.toString());
+		} catch (Exception ex) {
+			errorMsg = ex.getMessage();
+		}
+		return claimresult;
+	}
+	
+	public ClaimDTO getClaimDetail(String publicClaimId) {
+		String errorMsg = null;
+		ClaimDTO claimDTO = null;
+		try {
+			claimDTO = this.getClaimAPIPort().getDtoForClaim(publicClaimId);
 		} catch (Exception ex) {
 			errorMsg = ex.getMessage();
 		}
