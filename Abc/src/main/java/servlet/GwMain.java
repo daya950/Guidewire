@@ -220,8 +220,8 @@ public class GwMain extends HttpServlet {
 				fnoljsondto.setVehicleInfoDTO(vehDTO);
 				fnoljsondto.setLossDetailDTO(lossDetailDto);
 				String strPublicId = ws.save(fnoljsondto);
-				out.print(strPublicId+" "+ ws.getClaimDetail(strPublicId));
-				//out.print(ws.save(fnoljsondto));
+				//out.print(strPublicId+" "+ ws.getClaimDetail(strPublicId));
+				out.print(strPublicId);
 			} catch(Exception ex){
 				out.print("Ab bol "+ex.getMessage());                   
 			}
