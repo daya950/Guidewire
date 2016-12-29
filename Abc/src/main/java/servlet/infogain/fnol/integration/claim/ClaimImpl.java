@@ -47,20 +47,25 @@ public class ClaimImpl {
 			ACORDDocument aCORDDocument = transform.parseXMLtoAcord(fnolJSONDTO);
 			claimresult = this.getClaimAPIPort().importAcordClaimFromXML(aCORDDocument.toString());
 		} catch (Exception ex) {
-			errorMsg = ex.getMessage();
+			claimresult = "Exception in save Method " +ex.getMessage();
 		}
 		return claimresult;
 	}
 	
-	public ClaimDTO getClaimDetail(String publicClaimId) {
-		String errorMsg = null;
-		ClaimDTO claimDTO = null;
+	public String getClaimDetail(String publicClaimId) {
+		String strResponse = null;
+		ClaimDTO objClaimDTO = null;
 		try {
-			claimDTO = this.getClaimAPIPort().getDtoForClaim("cc:128");
+			objClaimDTO = this.getClaimAPIPort().getDtoForClaim(publicClaimId);
+			if (objClaimDTO == null) {
+				strResponse = "Bakwaas";
+			} else {
+				strResponse = objClaimDTO.getClaimNumber();
+			}
 		} catch (Exception ex) {
-			errorMsg = ex.getMessage();
+			strResponse = "Exception in GetClaimDetail Method "+ex.getMessage();
 		}
-		return claimDTO;
+		return strResponse;
 	}
 	
 	private PCClaimSearchIntegrationAPIPortType getPCClaimSearchIntegrationAPIPort() throws MalformedURLException {
