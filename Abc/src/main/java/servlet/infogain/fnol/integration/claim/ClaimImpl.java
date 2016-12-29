@@ -39,23 +39,23 @@ public class ClaimImpl {
 		return result;
 	}
 	
-	public ClaimDTO save(FnolJsonDTO fnolJSONDTO) {
+	/*public ClaimDTO save(FnolJsonDTO fnolJSONDTO) {
 		String errorMsg = null;
 		String claimresult = null;
 		ClaimDTO claimDTO = null;
 		try {
 
-			/*AcordTransform transform = new AcordTransform();
+			AcordTransform transform = new AcordTransform();
 			ACORDDocument aCORDDocument = transform.parseXMLtoAcord(fnolJSONDTO);
-			claimresult = this.getClaimAPIPort().importAcordClaimFromXML(aCORDDocument.toString());*/
+			claimresult = this.getClaimAPIPort().importAcordClaimFromXML(aCORDDocument.toString());
 			claimDTO = this.getClaimAPIPort().getDtoForClaim("cc:128");
 		} catch (Exception ex) {
 			errorMsg = ex.getMessage();
 		}
 		return claimDTO;
-	}
+	}*/
 	
-	/*public String save(FnolJsonDTO fnolJSONDTO) {
+	public String save(FnolJsonDTO fnolJSONDTO) {
 		String errorMsg = null;
 		String claimresult = null;
 		try {
@@ -67,7 +67,7 @@ public class ClaimImpl {
 			errorMsg = ex.getMessage();
 		}
 		return claimresult;
-	}*/
+	}
 	
 	private PCClaimSearchIntegrationAPIPortType getPCClaimSearchIntegrationAPIPort() throws MalformedURLException {
 		String claimURL = "http://115.112.147.13:8080/cc/ws/gw/webservice/cc/cc800/pcintegration/PCClaimSearchIntegrationAPI?WSDL";
