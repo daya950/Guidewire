@@ -54,7 +54,7 @@ public class ClaimImpl {
 	
 	public String getClaimDetail(String publicClaimId) {
 		String strResponse = null;
-		/*ClaimDTO objClaimDTO = null;
+		ClaimDTO objClaimDTO = null;
 		try {
 			objClaimDTO = this.getClaimAPIPort().getDtoForClaim(publicClaimId);
 			if (objClaimDTO == null) {
@@ -62,12 +62,6 @@ public class ClaimImpl {
 			} else {
 				strResponse = objClaimDTO.getClaimNumber();
 			}
-		} catch (Exception ex) {
-			strResponse = "Exception in GetClaimDetail Method "+ex.getMessage();
-		}
-		return strResponse;*/
-		try {
-			strResponse = this.getClaimAPIPort().getDtoForClaim(publicClaimId).getClaimNumber();
 		} catch (Exception ex) {
 			strResponse = "Exception in GetClaimDetail Method "+ex.getMessage();
 		}
