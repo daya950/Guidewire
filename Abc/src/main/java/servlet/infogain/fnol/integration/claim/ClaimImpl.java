@@ -63,7 +63,7 @@ public class ClaimImpl {
 				strResponse = objClaimDTO.getPolicyID();
 			}
 		} catch (Exception ex) {
-			strResponse = "Exception in GetClaimDetail Method "+ex.getMessage();
+			strResponse = "Exception in GetClaimDetail Method. "+ex.getMessage();
 		}
 		return strResponse;
 	}
