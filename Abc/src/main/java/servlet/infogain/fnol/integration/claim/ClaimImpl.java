@@ -66,7 +66,12 @@ public class ClaimImpl {
 			strResponse = "Exception in GetClaimDetail Method "+ex.getMessage();
 		}
 		return strResponse;*/
-		return this.getClaimAPIPort().getDtoForClaim(publicClaimId).getClaimNumber();
+		try {
+			strResponse = this.getClaimAPIPort().getDtoForClaim(publicClaimId).getClaimNumber();
+		} catch (Exception ex) {
+			strResponse = "Exception in GetClaimDetail Method "+ex.getMessage();
+		}
+		return strResponse;
 	}
 	
 	private PCClaimSearchIntegrationAPIPortType getPCClaimSearchIntegrationAPIPort() throws MalformedURLException {
