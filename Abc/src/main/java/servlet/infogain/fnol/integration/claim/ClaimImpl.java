@@ -60,7 +60,7 @@ public class ClaimImpl {
 			if (objClaimDTO == null) {
 				strResponse = "404";
 			} else {
-				strResponse = objClaimDTO.getPolicyID();
+				strResponse = objClaimDTO.getClaimNumber();
 			}
 		} catch (Exception ex) {
 			strResponse = "Exception in GetClaimDetail Method. "+ex.getMessage();
