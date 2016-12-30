@@ -58,9 +58,9 @@ public class ClaimImpl {
 		try {
 			objClaimDTO = this.getClaimAPIPort().getDtoForClaim(publicClaimId);
 			if (objClaimDTO == null) {
-				strResponse = "Bakwaas";
+				strResponse = "404";
 			} else {
-				strResponse = objClaimDTO.getClaimNumber();
+				strResponse = objClaimDTO.getPolicyID();
 			}
 		} catch (Exception ex) {
 			strResponse = "Exception in GetClaimDetail Method "+ex.getMessage();
