@@ -54,7 +54,7 @@ public class ClaimImpl {
 	
 	public String getClaimDetail(String publicClaimId) {
 		String strResponse = null;
-		ClaimDTO objClaimDTO = null;
+		/*ClaimDTO objClaimDTO = null;
 		try {
 			objClaimDTO = this.getClaimAPIPort().getDtoForClaim(publicClaimId);
 			if (objClaimDTO == null) {
@@ -65,7 +65,8 @@ public class ClaimImpl {
 		} catch (Exception ex) {
 			strResponse = "Exception in GetClaimDetail Method "+ex.getMessage();
 		}
-		return strResponse;
+		return strResponse;*/
+		return this.getClaimAPIPort().getDtoForClaim(publicClaimId).getClaimNumber();
 	}
 	
 	private PCClaimSearchIntegrationAPIPortType getPCClaimSearchIntegrationAPIPort() throws MalformedURLException {
