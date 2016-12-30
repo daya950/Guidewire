@@ -236,8 +236,7 @@ public class GwMain extends HttpServlet {
 		} else if ((service).equals("ccgs")) {
 			try {
 				ClaimImpl ws = new ClaimImpl();
-				json.put("claimNumber", ws.getClaimDetail(request.getParameter("id")));
-				out.print(json);
+				out.print(ws.getClaimDetail(request.getParameter("id")));
 			} catch (Exception e) {
 				out.print(e.getMessage());        
 				e.printStackTrace();
