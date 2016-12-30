@@ -219,9 +219,7 @@ public class GwMain extends HttpServlet {
 				fnoljsondto.setQuestionnaire(ques);
 				fnoljsondto.setVehicleInfoDTO(vehDTO);
 				fnoljsondto.setLossDetailDTO(lossDetailDto);
-				String strPublicId = ws.save(fnoljsondto);
-				//out.print(strPublicId+" "+ ws.getClaimDetail(strPublicId));
-				out.print(strPublicId);
+				out.print(ws.save(fnoljsondto));
 			} catch(Exception ex){
 				out.print("Ab bol "+ex.getMessage());                   
 			}
@@ -230,6 +228,15 @@ public class GwMain extends HttpServlet {
 				ClaimImpl ws = new ClaimImpl();
 				ClaimState cs = ws.getClaimStatus(request.getParameter("id"));
 				json.put("status", cs.value());
+				out.print(json);
+			} catch (Exception e) {
+				out.print(e.getMessage());        
+				e.printStackTrace();
+			} 
+		} else if ((service).equals("ccgs")) {
+			try {
+				ClaimImpl ws = new ClaimImpl();
+				json.put("claimNumber", ws.getClaimDetail(request.getParameter("id")));
 				out.print(json);
 			} catch (Exception e) {
 				out.print(e.getMessage());        
